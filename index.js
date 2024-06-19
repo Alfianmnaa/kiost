@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 app.post("/save-data", (req, res) => {
   const newData = req.body;
   const file = path.join(__dirname, "../public/script/data.json");
+  console.log("Received data:", newData);
 
   fs.readFile(file, (err, data) => {
     if (err) {
