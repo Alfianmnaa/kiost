@@ -9,8 +9,12 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors()); // Enable CORS for all routes
+const corsOption = {
+  origin: ["https://kiost.netlify.app", "https://kiost.netlify.app/", "https://kiost.vercel.app/", "http://localhost:5173", "http://localhost:3000", "http://localhost:4000"],
+  credentials: true,
+};
 
+app.use(cors(corsOption));
 // Endpoint to save data to data.json
 app.get("/", (req, res) => {
   res.send("Hello");
